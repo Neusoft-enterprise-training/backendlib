@@ -4,9 +4,9 @@ server:
  
 spring:
   datasource:
-    username: root
-    password: lc12138540562765
-    url: jdbc:mysql://localhost:3306/neusoft?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    username: team
+    password: team123
+    url: jdbc:mysql://localhost:3306/hotel?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
  
 mybatis:
