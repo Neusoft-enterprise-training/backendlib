@@ -15,8 +15,8 @@ public class CustomerModel {
 	private String age = null;
 	private int level = 0;
 	
-	private Date startTime = null;
-	private Date endTime = null;
+	private Date start = null;
+	private Date end = null;
 	
 	public int getId() {
 		return id;
@@ -49,17 +49,17 @@ public class CustomerModel {
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	public Date getStartTime() {
-		return startTime;
+	public Date getStart() {
+		return start;
 	}
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+	public void setStart(Date startTime) {
+		this.start = startTime;
 	}
-	public Date getEndTime() {
-		return endTime;
+	public Date getEnd() {
+		return end;
 	}
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
+	public void setEnd(Date endTime) {
+		this.end = endTime;
 	}
 
 }
