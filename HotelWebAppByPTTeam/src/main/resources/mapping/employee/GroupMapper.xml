@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.neusoft.hotel.employee.mapper.IGroupMapper">
+
+	<resultMap id="resultMap" type="groupModel">
+		<id property="groupID" column="GROUPID" />
+		<result property="name" column="NAME" />
+	</resultMap>
+
+	<insert id="insert" keyProperty="groupID" keyColumn="GROUPID"
+		useGeneratedKeys="true">
+		insert into group (NAME) values (#{name})
+	</insert>
+
+	<update id="update">
+		update group set NAME=#{name} where
+		GROUPID=#{groupID}
+	</update>
+
+	<delete id="delete">
+		delete from group where GROUPID = #{groupID]}
+	</delete>
+
+	<select id="selectByGroupID" resultMap="resultMap">
+		select * from group
+		where
+		GROUPID = #{groupID}
+	</select>
+
+	<select id="selectByAll" resultMap="resultMap">
+		select * from group
+	</select>
+
+</mapper>
