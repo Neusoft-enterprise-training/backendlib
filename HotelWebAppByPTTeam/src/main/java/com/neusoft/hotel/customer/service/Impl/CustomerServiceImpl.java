@@ -10,7 +10,7 @@ import com.neusoft.hotel.customer.model.CustomerModel;
 import com.neusoft.hotel.customer.service.ICustomerService;
 
 @Service
-public class CustomerServiceIpml implements ICustomerService {
+public class CustomerServiceImpl implements ICustomerService {
 
 	@Autowired
 	private ICustomerMapper customerMapper=null;

@@ -1,4 +1,3 @@
-
 server:
   port: 8200
  
@@ -11,7 +10,7 @@ spring:
  
 mybatis:
   mapper-locations: classpath:mapping/**/*.xml
-  type-aliases-package: com.neusoft.hotel.customer.model
+  type-aliases-package: com.neusoft.hotel.customer.model,com.neusoft.hotel.employee.model
  
 #showSql
 logging:
