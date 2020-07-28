@@ -18,7 +18,7 @@
   </insert>
   
   <update id="update">
-  update customer set NAME=#{name},SEX={sex},LEVEL={level},START={start},END={end} where ID=#{id}
+  update customer set NAME=#{name},SEX=#{sex},LEVEL=#{level},START=#{start},END=#{end} where ID=#{id}
   </update>
   
   <delete id="delete">

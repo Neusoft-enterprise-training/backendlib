@@ -65,9 +65,9 @@ public class CustomerController {
 	
 	
 	@GetMapping(value="/get")
-	public Result<CustomerModel> getByNo(@RequestParam(required=true)int no) throws Exception {
+	public Result<CustomerModel> getByNo(@RequestParam(required=true)int id) throws Exception {
 		Result<CustomerModel> result = new Result<CustomerModel>();
-		result.setResult(cs.getByNo(no));
+		result.setResult(cs.getByNo(id));
 		
 		
 		result.setStatus("Fine");
