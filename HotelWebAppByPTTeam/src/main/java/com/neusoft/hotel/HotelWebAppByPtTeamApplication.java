@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages={"com.neusoft.hotel.customer.mapper","com.neusoft.hotel.employee.mapper"})
+@MapperScan(basePackages={"com.neusoft.hotel.customer.mapper","com.neusoft.hotel.employee.mapper","com.neusoft.hotel.rooms.mapper"})
 
 public class HotelWebAppByPtTeamApplication {
 
