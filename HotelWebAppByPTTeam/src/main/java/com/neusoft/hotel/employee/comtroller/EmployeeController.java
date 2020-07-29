@@ -15,7 +15,7 @@ import com.neusoft.hotel.employee.service.IEmployeeService;
 
 @RestController
 @RequestMapping("/Employee")
-@CrossOrigin(origins = {"*", "null"})
+@CrossOrigin(origins = { "*", "null" })
 public class EmployeeController {
 
 	@Autowired
@@ -54,6 +54,16 @@ public class EmployeeController {
 		result.setResult(employeeService.getByEmployeeID(employeeID));
 		result.setStatus("Fine");
 		result.setMessage("取得指定雇员成功");
+		return result;
+	}
+
+	// 简化版list
+	@GetMapping(value = "/list")
+	public Result<EmployeeModel> getListByAll() throws Exception {
+		Result<EmployeeModel> result = new Result<EmployeeModel>();
+		result.setList(employeeService.getByAll());
+		result.setStatus("Fine");
+		result.setMessage("取得雇员列表成功");
 		return result;
 	}
 }

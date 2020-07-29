@@ -2,6 +2,8 @@ package com.neusoft.hotel.employee.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.neusoft.hotel.customer.model.CustomerModel;
 import com.neusoft.hotel.employee.model.EmployeeModel;
 
@@ -17,5 +19,8 @@ public interface IEmployeeMapper {
 	public EmployeeModel selectByEmployeeID(int employeeID) throws Exception;
 
 	public List<EmployeeModel> selectByAll() throws Exception;
-
+	
+	public List<EmployeeModel> selectByAllWithPage(@Param("start") int start, @Param("rows") int rows) throws Exception;
+	
+	public int selectCountByAll() throws Exception;
 }

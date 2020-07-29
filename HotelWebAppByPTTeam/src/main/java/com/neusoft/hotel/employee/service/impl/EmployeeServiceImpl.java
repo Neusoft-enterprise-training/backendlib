@@ -42,4 +42,26 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	public EmployeeModel getByEmployeeID(int employeeID) throws Exception {
 		return employeeMapper.selectByEmployeeID(employeeID);
 	}
+
+	@Override
+	public List<EmployeeModel> getByAllWithPage(int rows, int page) throws Exception {
+		return employeeMapper.selectByAllWithPage(rows * (page - 1), rows);
+	}
+
+	@Override
+	public int getCountByAll() throws Exception {
+		return employeeMapper.selectCountByAll();
+	}
+
+	@Override
+	public int getPageCountByAll(int rows) throws Exception {
+		int count = this.getCountByAll();
+		int pageCount = 0;
+		if (count % rows == 0) {
+			pageCount = count / rows;
+		} else {
+			pageCount = count / rows + 1;
+		}
+		return pageCount;
+	}
 }
