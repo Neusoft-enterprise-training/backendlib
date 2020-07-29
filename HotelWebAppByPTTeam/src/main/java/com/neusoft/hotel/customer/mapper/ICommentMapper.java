@@ -2,10 +2,12 @@ package com.neusoft.hotel.customer.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.neusoft.hotel.customer.model.CommentModel;
 
+@Mapper
 public interface ICommentMapper {
 	public void insert(CommentModel m) throws Exception;
 	
