@@ -25,7 +25,7 @@ public interface ICustomerMapper {
 	//取得顾客个数
 	public int selectCountByAll() throws Exception;
 	//按ID找顾客
-	public CustomerModel selectByNo(int no) throws Exception;
+	public CustomerModel selectById(int no) throws Exception;
 	
 	//按照订单编号取得顾客信息
 	public CustomerModel selectByNOWithOrder(int no) throws Exception;

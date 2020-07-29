@@ -65,9 +65,9 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 
 	@Override
-	public CustomerModel getByNo(int no) throws Exception {
+	public CustomerModel getById(int id) throws Exception {
 		
-		return customerMapper.selectByNo(no);
+		return customerMapper.selectById(id);
 	}
 
 }

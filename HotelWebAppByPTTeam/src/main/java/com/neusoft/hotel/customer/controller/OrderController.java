@@ -10,19 +10,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neusoft.hotel.Result.Result;
-import com.neusoft.hotel.customer.model.CustomerModel;
-import com.neusoft.hotel.customer.service.ICustomerService;
+import com.neusoft.hotel.customer.model.OrderModel;
+import com.neusoft.hotel.customer.service.IOrderService;
+
 @RestController
-@RequestMapping("/Customer")
+@RequestMapping("/Order")
 @CrossOrigin(origins = {"*", "null"})
-public class CustomerController {
+public class OrderController {
 	
 	@Autowired
-	private ICustomerService cs = null;
+	private IOrderService os = null;
 	
 	@PostMapping(value="/add")
-	public Result<String> add(@RequestBody CustomerModel cm) throws Exception {
-		cs.add(cm);
+	public Result<String> add(@RequestBody OrderModel om) throws Exception {
+		os.add(om);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
 		result.setMessage("增加顾客成功");
@@ -30,8 +31,8 @@ public class CustomerController {
 	}
 	
 	@PostMapping(value="/modify")
-	public Result<String> modify(@RequestBody CustomerModel cm) throws Exception {
-		cs.modify(cm);
+	public Result<String> modify(@RequestBody OrderModel om) throws Exception {
+		os.modify(om);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
 		result.setMessage("修改顾客成功");
@@ -39,8 +40,8 @@ public class CustomerController {
 	}
 	
 	@PostMapping(value="/delete")
-	public Result<String> delete(@RequestBody CustomerModel cm) throws Exception {
-		cs.delete(cm);
+	public Result<String> delete(@RequestBody OrderModel om) throws Exception {
+		os.delete(om);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
 		result.setMessage("删除顾客成功");
@@ -49,13 +50,13 @@ public class CustomerController {
 	
 	//取得部门列表，分页模式
 	@GetMapping(value="/list/all/page")
-	public Result<CustomerModel> getListByAllWithPage(@RequestParam(required=false,defaultValue="10") int rows,@RequestParam(required=false,defaultValue="1")int page) throws Exception {
-		Result<CustomerModel> result = new Result<CustomerModel>();
-		result.setPageCount(cs.getPageCountByAll(rows));
+	public Result<OrderModel> getListByAllWithPage(@RequestParam(required=false,defaultValue="10") int rows,@RequestParam(required=false,defaultValue="1")int page) throws Exception {
+		Result<OrderModel> result = new Result<OrderModel>();
+		result.setPageCount(os.getPageCountByAll(rows));
 		result.setRows(rows);
 		result.setPage(page);
-		result.setList(cs.getListByAllWithPage(rows, page));
-		result.setCount(cs.getCountByAll());
+		result.setList(os.getListByAllWithPage(rows, page));
+		result.setCount(os.getCountByAll());
 		
 		
 		result.setStatus("Fine");
@@ -65,9 +66,9 @@ public class CustomerController {
 	
 	
 	@GetMapping(value="/get")
-	public Result<CustomerModel> getByNo(@RequestParam(required=true)int id) throws Exception {
-		Result<CustomerModel> result = new Result<CustomerModel>();
-		result.setResult(cs.getById(id));
+	public Result<OrderModel> getByNo(@RequestParam(required=true)int id) throws Exception {
+		Result<OrderModel> result = new Result<OrderModel>();
+		result.setResult(os.getById(id));
 		
 		
 		result.setStatus("Fine");

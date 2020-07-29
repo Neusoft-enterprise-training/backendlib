@@ -23,5 +23,5 @@ public interface ICustomerService {
 		public int getPageCountByAll(int rows) throws Exception;
 		
 		//根据顾客的id取得指定的顾客对象
-		public CustomerModel getByNo(int id) throws Exception;
+		public CustomerModel getById(int id) throws Exception;
 }

@@ -37,7 +37,7 @@
   select count(*) from customer
   </select>
   
-  <select id="selectByNo" resultMap="CustomerResultMap">
+  <select id="selectById" resultMap="CustomerResultMap">
     select * from customer where ID = #{id}
   </select>
 </mapper>
