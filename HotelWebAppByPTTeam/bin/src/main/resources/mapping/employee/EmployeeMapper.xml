@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.neusoft.hotel.employee.mapper.IEmployeeMapper">
+
+	<!-- 因为只有一个resultMap，所以就不加employee前缀了 -->
+	<resultMap id="resultMap" type="employeeModel">
+		<id property="employeeID" column="EMPLOYEEID" />
+		<result property="name" column="NAME" />
+		<result property="groupID" column="GROUPID" />
+		<result property="salary" column="SALARY" />
+		<result property="email" column="EMAIL" />
+		<result property="phone" column="PHONE" />
+	</resultMap>
+
+	<insert id="insert" keyProperty="employeeID"
+		keyColumn="EMPLOYEEID" useGeneratedKeys="true">
+		insert into employee
+		(NAME,GROUPID,SALARY,EMAIL,PHONE) values
+		(#{name},#{groupID},#{salary},#{email},#{phone})
+	</insert>
+
+	<update id="update">
+		update employee set
+		NAME=#{name}GROUPID={groupID},SALARY={salary},EMAIL={email},PHONE={phone}
+		where
+		EMPLOYEEID=#{employeeID}
+	</update>
+
+	<delete id="delete">
+		delete from employee where EMPLOYEEID = #{employeeID}
+	</delete>
+
+	<select id="selectByEmployeeID" resultMap="resultMap">
+		select * from employee
+		where
+		EMPLOYEEID = #{employeeID}
+	</select>
+
+	<select id="selectByAll" resultMap="resultMap">
+		select * from employee
+	</select>
+
+</mapper>

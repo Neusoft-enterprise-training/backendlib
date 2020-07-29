@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.neusoft.hotel.employee.mapper.IRecordMapper">
+
+	<resultMap id="resultMap" type="recordModel">
+		<result property="employeeID" column="EMPLOYEEID" />
+		<result property="type" column="TYPE" />
+		<result property="time" column="TIME" />
+	</resultMap>
+
+	<insert id="insert">
+		insert into record (EMPLOYEEID, TYPE, NAME)
+		values
+		(#{employeeID}, #{type}, #{name})
+	</insert>
+
+	<update id="update">
+		update record set
+		TYPE=#{type}
+		where
+		EMPLOYEEID=#{employeeID} and TIME=#{time}
+	</update>
+
+	<delete id="delete">
+		delete from record
+		where
+		EMPLOYEEID=#{employeeID} and
+		TIME=#{time}
+	</delete>
+
+	<select id="selectByEmployeeID" resultMap="resultMap">
+		select * from record
+		where
+		EMPLOYEEID = #{employeeID}
+	</select>
+
+	<select id="selectByAll" resultMap="resultMap">
+		select * from record
+	</select>
+
+</mapper>
