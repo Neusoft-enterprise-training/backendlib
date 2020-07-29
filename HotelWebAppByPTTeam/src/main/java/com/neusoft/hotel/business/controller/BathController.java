@@ -7,46 +7,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.neusoft.hotel.business.model.BusinessModel;
-import com.neusoft.hotel.business.service.IBusinessService;
 import com.neusoft.hotel.Result.Result;
+import com.neusoft.hotel.business.model.BathModel;
+import com.neusoft.hotel.business.service.IBathService;
 
 @RestController
-@RequestMapping(value="/business")
-public class BusinessController {
-	
+@RequestMapping(value="/bath")
+public class BathController {
 	@Autowired
-	private IBusinessService bs=null;
+	private IBathService bs=null;
 		
 	@PostMapping(value="/add")
-	public Result<String> add(BusinessModel dm) throws Exception{
+	public Result<String> add(BathModel dm) throws Exception{
 		bs.add(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
-		result.setMessage("增加业务成功!");
+		result.setMessage("增加服务项目成功!");
 		return result;
 		
 	}
 	@PostMapping(value="/modify")
-	public Result<String> modify(BusinessModel dm) throws Exception{
+	public Result<String> modify(BathModel dm) throws Exception{
 		bs.modify(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
-		result.setMessage("修改业务成功!");
+		result.setMessage("修改服务项目成功!");
 		return result;
 	}
 	@PostMapping(value="/delete")
-	public Result<String> delete(BusinessModel dm) throws Exception{
+	public Result<String> delete(BathModel dm) throws Exception{
 		bs.delete(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
-		result.setMessage("删除业务成功!");
+		result.setMessage("删除服务项目成功!");
 		return result;
 	}
 	//取得部门列表，分页模式
 	@GetMapping(value="/list/all/page")
-	public Result<BusinessModel> getListByAllWitgPage(@RequestParam(required=false,defaultValue="10") int rows,@RequestParam(required=false,defaultValue="1") int page) throws Exception{
-		Result<BusinessModel> result=new Result<BusinessModel>();
+	public Result<BathModel> getListByAllWitgPage(@RequestParam(required=false,defaultValue="10") int rows,@RequestParam(required=false,defaultValue="1") int page) throws Exception{
+		Result<BathModel> result=new Result<BathModel>();
 		result.setCount(bs.getCountByAll());
 		result.setPageCount(bs.getPageCountByAll(rows));
 		result.setRows(rows);
@@ -54,16 +53,17 @@ public class BusinessController {
 		result.setList(bs.getListByAllWithPage(rows, page));
 		
 		result.setStatus("OK");
-		result.setMessage("取得业务列表分页方式成功!");
+		result.setMessage("取得服务项目列表分页方式成功!");
 		return result;
 	}
 	@GetMapping(value="/get")
-	public Result<BusinessModel> getByNo(@RequestParam(required=true) int no) throws Exception{
-		Result<BusinessModel> result=new Result<BusinessModel>();
+	public Result<BathModel> getByNo(@RequestParam(required=true) int no) throws Exception{
+		Result<BathModel> result=new Result<BathModel>();
 		result.setResult(bs.getByNo(no));
 		
 		result.setStatus("OK");
-		result.setMessage("取得指定业务对象成功!");
+		result.setMessage("取得指定服务项目对象成功!");
 		return result;
 	}
+
 }

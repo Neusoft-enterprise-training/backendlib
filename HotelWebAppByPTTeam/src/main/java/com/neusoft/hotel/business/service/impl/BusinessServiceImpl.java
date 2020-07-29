@@ -16,6 +16,7 @@ import com.neusoft.hotel.business.service.IBusinessService;
 public class BusinessServiceImpl implements IBusinessService {
 	@Autowired
 	private IBusinessMapper businessMapper=null;
+	
 	@Override
 	public int add(BusinessModel dm) throws Exception {
 		businessMapper.insert(dm);

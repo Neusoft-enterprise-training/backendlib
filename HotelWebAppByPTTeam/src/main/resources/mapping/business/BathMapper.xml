@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.hotel.business.mapper.IBathMapper">
+
+	<resultMap id="BathResultMap" type="Bath" >
+		<id property="id" column="ITEMID"/>
+		<result property="name" column="ITEMNAME"/>
+		<result property="charge" column="ITEMCHARGE"/>
+	</resultMap>
+ 
+	<insert id="insert">
+	insert into oa_bath (ITEMID,ITEMNAME,ITEMCHARGE) values (#{id},#{name},#{charge})
+ 	</insert>
+  
+ 	<update id="update">
+ 	update oa_bath set ITEMNAME=#{name},ITEMCHARGE=#{charge} where ITEMID=#{id}
+ 	</update>
+  
+	<delete id="delete">
+ 	delete from oa_bath where ITEMID=#{id} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="BathResultMap">
+ 	select *  from oa_bath
+ 	</select>
+ 	
+ 	<select id="selectByAllWithPage" resultMap="BathResultMap">
+ 	select *  from oa_bath limit #{start},#{rows}
+ 	</select>
+ 	
+ 	<select id="selectCountByAll" resultType="_int">
+ 	select count(*) from oa_bath
+ 	</select>
+ 
+ 	<select id="selectByNo"  resultMap="BathResultMap">
+ 	select * from oa_bath where ITEMID=#{id} 
+ 	</select>
+  
+</mapper>
