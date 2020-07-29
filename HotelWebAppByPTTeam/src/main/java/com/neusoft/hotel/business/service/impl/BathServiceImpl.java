@@ -68,9 +68,9 @@ public class BathServiceImpl implements IBathService {
 	}
 
 	@Override
-	public BathModel getByNo(int no) throws Exception {
+	public BathModel getByNo(String id) throws Exception {
 		
-		return bathMapper.selectById(no);
+		return bathMapper.selectById(id);
 	}
 
 }

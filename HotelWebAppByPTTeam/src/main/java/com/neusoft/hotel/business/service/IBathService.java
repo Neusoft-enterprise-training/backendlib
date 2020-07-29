@@ -21,7 +21,7 @@ public interface IBathService {
 	//取得部门的显示页数
 	public int getPageCountByAll(int rows) throws Exception;
 	
-	//根据部门的no（PK）取得指定的部门对象
-	public BathModel getByNo(int no) throws Exception;
+	//根据部门的id（PK）取得指定的部门对象
+	public BathModel getByNo(String id) throws Exception;
 	
 }

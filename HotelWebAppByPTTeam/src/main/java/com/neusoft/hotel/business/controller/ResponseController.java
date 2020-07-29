@@ -8,17 +8,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neusoft.hotel.Result.Result;
-import com.neusoft.hotel.business.model.BathModel;
-import com.neusoft.hotel.business.service.IBathService;
+import com.neusoft.hotel.business.model.ResponseModel;
+import com.neusoft.hotel.business.service.IResponseService;
 
 @RestController
-@RequestMapping(value="/bath")
-public class BathController {
+@RequestMapping(value="/response")
+public class ResponseController {
+	
 	@Autowired
-	private IBathService bs=null;
+	private IResponseService bs=null;
 		
 	@PostMapping(value="/add")
-	public Result<String> add(BathModel dm) throws Exception{
+	public Result<String> add(ResponseModel dm) throws Exception{
 		bs.add(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
@@ -27,7 +28,7 @@ public class BathController {
 		
 	}
 	@PostMapping(value="/modify")
-	public Result<String> modify(BathModel dm) throws Exception{
+	public Result<String> modify(ResponseModel dm) throws Exception{
 		bs.modify(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
@@ -35,7 +36,7 @@ public class BathController {
 		return result;
 	}
 	@PostMapping(value="/delete")
-	public Result<String> delete(BathModel dm) throws Exception{
+	public Result<String> delete(ResponseModel dm) throws Exception{
 		bs.delete(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
@@ -44,8 +45,8 @@ public class BathController {
 	}
 	//取得部门列表，分页模式
 	@GetMapping(value="/list/all/page")
-	public Result<BathModel> getListByAllWitgPage(@RequestParam(required=false,defaultValue="10") int rows,@RequestParam(required=false,defaultValue="1") int page) throws Exception{
-		Result<BathModel> result=new Result<BathModel>();
+	public Result<ResponseModel> getListByAllWitgPage(@RequestParam(required=false,defaultValue="10") int rows,@RequestParam(required=false,defaultValue="1") int page) throws Exception{
+		Result<ResponseModel> result=new Result<ResponseModel>();
 		result.setCount(bs.getCountByAll());
 		result.setPageCount(bs.getPageCountByAll(rows));
 		result.setRows(rows);
@@ -57,9 +58,9 @@ public class BathController {
 		return result;
 	}
 	@GetMapping(value="/get")
-	public Result<BathModel> getByNo(@RequestParam(required=true) String id) throws Exception{
-		Result<BathModel> result=new Result<BathModel>();
-		result.setResult(bs.getByNo(id));
+	public Result<ResponseModel> getByNo(@RequestParam(required=true) String bcode) throws Exception{
+		Result<ResponseModel> result=new Result<ResponseModel>();
+		result.setResult(bs.getByNo(bcode));
 		
 		result.setStatus("OK");
 		result.setMessage("取得指定服务项目对象成功!");
