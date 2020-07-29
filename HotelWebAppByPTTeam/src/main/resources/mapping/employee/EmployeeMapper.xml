@@ -24,7 +24,7 @@
 
 	<update id="update">
 		update employee set
-		NAME=#{name}GROUPID={groupID},SALARY={salary},EMAIL={email},PHONE={phone}
+		NAME=#{name},GROUPID={groupID},SALARY={salary},EMAIL={email},PHONE={phone}
 		where
 		EMPLOYEEID=#{employeeID}
 	</update>
