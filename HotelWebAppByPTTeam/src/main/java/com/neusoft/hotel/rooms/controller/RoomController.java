@@ -1,6 +1,7 @@
 package com.neusoft.hotel.rooms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +15,14 @@ import com.neusoft.hotel.rooms.service.IRoomService;
 //部门的REST API的Controller
 @RestController
 @RequestMapping("/Room")
+@CrossOrigin(origins = {"*", "null"})
 public class RoomController {
 	@Autowired
 	private IRoomService ds=null;
 	
 	@PostMapping(value="/add")
 	public Result<String> add(RoomModel dm) throws Exception {
+		System.out.println(dm.getNo());
 		ds.add(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
@@ -29,7 +32,7 @@ public class RoomController {
 	
 	@PostMapping(value="/modify")
 	public Result<String> modify(RoomModel dm) throws Exception {
-		ds.add(dm);
+		ds.modify(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
 		result.setMessage("修改部门成功");
@@ -38,7 +41,7 @@ public class RoomController {
 	
 	@PostMapping(value="/delete")
 	public Result<String> delete(RoomModel dm) throws Exception {
-		ds.add(dm);
+		ds.delete(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
 		result.setMessage("删除部门成功");

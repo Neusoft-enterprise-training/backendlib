@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.oa.rooms.mapper.ICleanMapper">
+  
+  <resultMap id="CleanResultMap" type="Clean">
+  <id property="cleanid" column="CLEANID"/>
+  <result property="time" column="CLEANTIME"/>
+  <result property="roomid" column="ROOMID"/>
+  <result property="worker" column="CLEANWORKER"/>
+  </resultMap>
+  
+  <insert id="insert" parameterType="Clean" keyProperty="cleanid" keyColumn="CLEANID" useGeneratedKeys="false">
+  insert into oa_clean (CLEANID,CLEANTIME,ROOMID,CLEANWORKER) values (#{cleanid},#{time},#{roomid},#{worker})
+  </insert>
+  
+  <update id="update">
+  update oa_clean set CLEANTIME=#{time},ROOMID=#{roomid},CLEANWORKER=#{worker} where CLEANID=#{cleanid}
+  </update>
+  
+  <delete id="delete">
+  delete from oa_clean where CLEANID = #{cleanid}
+  </delete>
+  
+  <select id="selectByAll" resultMap="CleanResultMap">
+  select * from oa_clean
+  </select>
+  
+  <select id="selectByAllWithPage" resultMap="CleanResultMap">
+  select * from oa_clean limit #{start},#{rows}
+  </select>
+  
+  <select id="selectCountByAll" resultType="_int">
+  select count(*) from oa_clean
+  </select>
+  
+  <select id="selectByNo" resultMap="CleanResultMap">
+    select * from oa_clean where CLEANID = #{cleanid}
+  </select>
+</mapper>

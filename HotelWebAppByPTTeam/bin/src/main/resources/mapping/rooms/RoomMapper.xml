@@ -16,7 +16,7 @@
   </insert>
   
   <update id="update">
-  update oa_room set ROOMTYPE=#{type},ROOMSTATE=#{state},ROOMWORKER=#{worker} where DEPTNO=#{no}
+  update oa_room set ROOMTYPE=#{type},ROOMSTATE=#{state},ROOMWORKER=#{worker} where ROOMNO=#{no}
   </update>
   
   <delete id="delete">

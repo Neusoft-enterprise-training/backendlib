@@ -12,9 +12,9 @@
 	</resultMap>
 
 	<insert id="insert">
-		insert into record (EMPLOYEEID, TYPE, NAME)
+		insert into record (EMPLOYEEID, TYPE)
 		values
-		(#{employeeID}, #{type}, #{name})
+		(#{employeeID}, #{type})
 	</insert>
 
 	<update id="update">

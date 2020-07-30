@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.oa.rooms.mapper.ICostMapper">
+  
+  <resultMap id="CostResultMap" type="Cost">
+  <id property="no" column="ROOMNO"/>
+  <result property="soupcost" column="SOUPCOST"/>
+  <result property="foodcost" column="FOODCOST"/>
+  <result property="condomcost" column="CONDOMCOST"/>
+  </resultMap>
+  
+  <insert id="insert" parameterType="Cost" keyProperty="no" keyColumn="ROOMNO" useGeneratedKeys="false">
+  insert into oa_cost (ROOMNO,SOUPCOST,FOODCOST,CONDOMCOST) values (#{no},#{soupcost},#{foodcost},#{condomcost})
+  </insert>
+  
+  <update id="update">
+  update oa_cost set SOUPCOST=#{soupcost},FOODCOST=#{foodcost},ROOMWORKER=#{condomcost} where ROOMNO=#{no}
+  </update>
+  
+  <delete id="delete">
+  delete from oa_cost where ROOMNO = #{no}
+  </delete>
+  
+  <select id="selectByAll" resultMap="CostResultMap">
+  select * from oa_cost
+  </select>
+  
+  <select id="selectByAllWithPage" resultMap="CostResultMap">
+  select * from oa_cost limit #{start},#{rows}
+  </select>
+  
+  <select id="selectCountByAll" resultType="_int">
+  select count(*) from oa_cost
+  </select>
+  
+  <select id="selectByNo" resultMap="CostResultMap">
+    select * from oa_cost where ROOMNO = #{no}
+  </select>
+</mapper>

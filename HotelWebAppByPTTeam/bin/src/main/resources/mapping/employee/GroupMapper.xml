@@ -12,26 +12,26 @@
 
 	<insert id="insert" keyProperty="groupID" keyColumn="GROUPID"
 		useGeneratedKeys="true">
-		insert into group (NAME) values (#{name})
+		insert into `group` (NAME) values (#{name})
 	</insert>
 
 	<update id="update">
-		update group set NAME=#{name} where
+		update `group` set NAME=#{name} where
 		GROUPID=#{groupID}
 	</update>
 
 	<delete id="delete">
-		delete from group where GROUPID = #{groupID]}
+		delete from `group` where GROUPID = #{groupID}
 	</delete>
 
 	<select id="selectByGroupID" resultMap="resultMap">
-		select * from group
+		select * from `group`
 		where
 		GROUPID = #{groupID}
 	</select>
 
 	<select id="selectByAll" resultMap="resultMap">
-		select * from group
+		select * from `group`
 	</select>
 
 </mapper>

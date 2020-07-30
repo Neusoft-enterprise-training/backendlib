@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.hotel.customer.mapper.ICommentMapper">
+  
+  <resultMap id="CommentResultMap" type="Comment">
+  <id property="id" column="ID"/>
+  <result property="cid" column="CID"/>
+  <result property="time" column="TIME"/>
+  <result property="level" column="LEVEL"/>
+  </resultMap>
+  
+  <insert id="insert" parameterType="Comment" keyProperty="id" keyColumn="ID" useGeneratedKeys="false">
+  insert into comment (ID,CID,LEVEL,TIME) values (#{id},#{cid},#{level},#{time})
+  </insert>
+  
+  <update id="update">
+  update comment set CID=#{cid},LEVEL=#{level},TIME=#{time} where ID=#{id}
+  </update>
+  
+  <delete id="delete">
+  delete from comment where ID = #{id}
+  </delete>
+  
+  <select id="selectByAll" resultMap="CommentResultMap">
+  select * from comment
+  </select>
+  
+  <select id="selectByAllWithPage" resultMap="CommentResultMap">
+  select * from comment limit #{start},#{rows}
+  </select>
+  
+  <select id="selectCountByAll" resultType="_int">
+  select count(*) from comment
+  </select>
+  
+  <select id="selectById" resultMap="CommentResultMap">
+    select * from comment where ID = #{id}
+  </select>
+</mapper>

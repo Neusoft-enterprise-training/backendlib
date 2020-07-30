@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.hotel.customer.mapper.IOrderMapper">
+  
+  <resultMap id="OrderResultMap" type="Order">
+  <id property="id" column="ID"/>
+  <result property="cid" column="CID"/>
+  <result property="money" column="MONEY"/>
+  <result property="time" column="TIME"/>
+  </resultMap>
+  
+  <insert id="insert" parameterType="Order" keyProperty="id" keyColumn="ID" useGeneratedKeys="false">
+  insert into corder (CID,MONEY,TIME) values (#{cid},#{money},#{time})
+  </insert>
+  
+  <update id="update">
+  update corder set CID=#{cid},MONEY=#{money},TIME=#{time} where ID=#{id}
+  </update>
+  
+  <delete id="delete">
+  delete from corder where ID = #{id}
+  </delete>
+  
+  <select id="selectByAll" resultMap="OrderResultMap">
+  select * from corder
+  </select>
+  
+  <select id="selectByAllWithPage" resultMap="OrderResultMap">
+  select * from corder limit #{start},#{rows}
+  </select>
+  
+  <select id="selectCountByAll" resultType="_int">
+  select count(*) from corder
+  </select>
+  
+  <select id="selectById" resultMap="OrderResultMap">
+    select * from corder where ID = #{id}
+  </select>
+</mapper>

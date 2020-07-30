@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neusoft.oa.rooms.mapper.IRoomMapper">
+<mapper namespace="com.neusoft.hotel.rooms.mapper.IRoomMapper">
   
   <resultMap id="RoomResultMap" type="Room">
   <id property="no" column="ROOMNO"/>
@@ -16,7 +16,7 @@
   </insert>
   
   <update id="update">
-  update oa_room set ROOMTYPE=#{type},ROOMSTATE=#{state},ROOMWORKER=#{worker} where DEPTNO=#{no}
+  update oa_room set ROOMTYPE=#{type},ROOMSTATE=#{state},ROOMWORKER=#{worker} where ROOMNO=#{no}
   </update>
   
   <delete id="delete">

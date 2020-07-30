@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.hotel.business.mapper.IBusinessMapper">
+
+	<resultMap id="BusinessResultMap" type="Business" >
+		<id property="no" column="BIZNO"/>
+		<result property="code" column="BIZCODE"/>
+		<result property="name" column="BIZNAME"/>
+	</resultMap>
+ 
+	<insert id="insert" parameterType="Business" keyProperty="no"   keyColumn="BIZNO"  useGeneratedKeys="true">
+	insert into oa_business (BIZCODE,BIZNAME) values (#{code},#{name})
+ 	</insert>
+  
+ 	<update id="update">
+ 	update oa_business set BIZCODE=#{code},BIZNAME=#{name} where BIZNO=#{no}
+ 	</update>
+  
+	<delete id="delete">
+ 	delete from oa_business where BIZNO=#{no} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="BusinessResultMap">
+ 	select *  from oa_business
+ 	</select>
+ 	
+ 	<select id="selectByAllWithPage" resultMap="BusinessResultMap">
+ 	select *  from oa_business limit #{start},#{rows}
+ 	</select>
+ 	
+ 	<select id="selectCountByAll" resultType="_int">
+ 	select count(*) from oa_business
+ 	</select>
+ 
+ 	<select id="selectByNo"  resultMap="BusinessResultMap">
+ 	select * from oa_business where BIZNO=#{no}
+ 	</select>
+  
+</mapper>

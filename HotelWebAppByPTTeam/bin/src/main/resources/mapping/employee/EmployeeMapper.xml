@@ -24,7 +24,7 @@
 
 	<update id="update">
 		update employee set
-		NAME=#{name}GROUPID={groupID},SALARY={salary},EMAIL={email},PHONE={phone}
+		NAME=#{name},GROUPID=#{groupID},SALARY=#{salary},EMAIL=#{email},PHONE=#{phone}
 		where
 		EMPLOYEEID=#{employeeID}
 	</update>
@@ -43,4 +43,13 @@
 		select * from employee
 	</select>
 
+	<select id="selectByAllWithPage" resultMap="resultMap">
+		select * from
+		employee limit #{start},#{rows}
+	</select>
+
+	<select id="selectCountByAll" resultType="_int">
+		select count(*) from
+		employee
+	</select>
 </mapper>
