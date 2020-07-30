@@ -3,11 +3,15 @@ package com.neusoft.hotel.employee.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.neusoft.hotel.employee.mapper.IGroupMapper;
 import com.neusoft.hotel.employee.model.GroupModel;
 import com.neusoft.hotel.employee.service.IGroupService;
 
+@Service
+@Transactional
 public class GroupServiceImpl implements IGroupService {
 
 	@Autowired

@@ -11,7 +11,7 @@ spring:
  
 mybatis:
   mapper-locations: classpath:mapping/**/*.xml
-  type-aliases-package: com.neusoft.hotel.business.model,com.neusoft.hotel.customer.model,com.neusoft.hotel.employee.model,com.neusoft.hotel.rooms.model,com.neusoft.hotel.business.model
+  type-aliases-package: com.neusoft.hotel.business.model,com.neusoft.hotel.customer.model,com.neusoft.hotel.employee.model,com.neusoft.hotel.rooms.model
  
 #showSql
 logging:
