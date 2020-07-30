@@ -26,6 +26,6 @@ public interface IBathMapper {
 	public int selectCountByAll() throws Exception;
 	
 	//按ID找服务项目
-	public BathModel selectById(String id) throws Exception;
+	public BathModel selectById(int id) throws Exception;
 	
 }

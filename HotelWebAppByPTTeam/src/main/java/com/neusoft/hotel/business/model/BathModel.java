@@ -7,15 +7,15 @@ import org.apache.ibatis.type.Alias;
 @Alias("Bath")
 public class BathModel implements Serializable {
 	
-	private String id = null;
+	private int id = 0;
 	private String name = null;
 	private int charge = 0;
 	
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

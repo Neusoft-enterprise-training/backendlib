@@ -7,10 +7,18 @@ import org.apache.ibatis.type.Alias;
 @Alias("Response")
 public class ResponseModel implements Serializable {
 	
+	private int rid = 0;
 	private String bcode = null;
 	private String wid = null;
 	private String time = null;
 	
+	
+	public int getRid() {
+		return rid;
+	}
+	public void setRid(int rid) {
+		this.rid = rid;
+	}
 	public String getBcode() {
 		return bcode;
 	}

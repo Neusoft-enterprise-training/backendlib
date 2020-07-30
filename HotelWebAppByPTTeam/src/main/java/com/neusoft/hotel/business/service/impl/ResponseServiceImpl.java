@@ -67,9 +67,9 @@ public class ResponseServiceImpl implements IResponseService {
 	}
 
 	@Override
-	public ResponseModel getByNo(String bcode) throws Exception {
+	public ResponseModel getByNo(int rid) throws Exception {
 		
-		return responseMapper.selectById(bcode);
+		return responseMapper.selectById(rid);
 	}
 
 }

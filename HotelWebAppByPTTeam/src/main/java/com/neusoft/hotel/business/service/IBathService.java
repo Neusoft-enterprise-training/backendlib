@@ -7,7 +7,7 @@ import com.neusoft.hotel.business.model.BathModel;
 public interface IBathService {
 
 	//增加部门
-	public String add(BathModel dm) throws Exception;
+	public int add(BathModel dm) throws Exception;
 	//修改部门
 	public void modify(BathModel dm) throws Exception;
 	//删除部门
@@ -22,6 +22,6 @@ public interface IBathService {
 	public int getPageCountByAll(int rows) throws Exception;
 	
 	//根据部门的id（PK）取得指定的部门对象
-	public BathModel getByNo(String id) throws Exception;
+	public BathModel getByNo(int id) throws Exception;
 	
 }

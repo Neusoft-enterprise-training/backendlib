@@ -1,6 +1,7 @@
 package com.neusoft.hotel.business.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.neusoft.hotel.Result.Result;
 
 @RestController
 @RequestMapping(value="/business")
+@CrossOrigin(origins = {"*", "null"})
 public class BusinessController {
 	
 	@Autowired
@@ -20,6 +22,7 @@ public class BusinessController {
 		
 	@PostMapping(value="/add")
 	public Result<String> add(BusinessModel dm) throws Exception{
+		System.out.println(dm.getCode());
 		bs.add(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
@@ -37,6 +40,7 @@ public class BusinessController {
 	}
 	@PostMapping(value="/delete")
 	public Result<String> delete(BusinessModel dm) throws Exception{
+		System.out.println(dm.getNo());
 		bs.delete(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");

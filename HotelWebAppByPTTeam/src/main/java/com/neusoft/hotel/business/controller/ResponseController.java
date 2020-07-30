@@ -1,6 +1,7 @@
 package com.neusoft.hotel.business.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.neusoft.hotel.business.service.IResponseService;
 
 @RestController
 @RequestMapping(value="/response")
+@CrossOrigin(origins = {"*", "null"})
 public class ResponseController {
 	
 	@Autowired
@@ -58,9 +60,9 @@ public class ResponseController {
 		return result;
 	}
 	@GetMapping(value="/get")
-	public Result<ResponseModel> getByNo(@RequestParam(required=true) String bcode) throws Exception{
+	public Result<ResponseModel> getByNo(@RequestParam(required=true) int rid) throws Exception{
 		Result<ResponseModel> result=new Result<ResponseModel>();
-		result.setResult(bs.getByNo(bcode));
+		result.setResult(bs.getByNo(rid));
 		
 		result.setStatus("OK");
 		result.setMessage("取得指定服务项目对象成功!");

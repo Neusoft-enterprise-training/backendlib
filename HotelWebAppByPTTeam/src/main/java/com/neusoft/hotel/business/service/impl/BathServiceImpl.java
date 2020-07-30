@@ -19,7 +19,7 @@ public class BathServiceImpl implements IBathService {
 	private IBathMapper bathMapper=null;
 	
 	@Override
-	public String add(BathModel dm) throws Exception {
+	public int add(BathModel dm) throws Exception {
 		bathMapper.insert(dm);
 		return dm.getId();
 	}
@@ -68,7 +68,7 @@ public class BathServiceImpl implements IBathService {
 	}
 
 	@Override
-	public BathModel getByNo(String id) throws Exception {
+	public BathModel getByNo(int id) throws Exception {
 		
 		return bathMapper.selectById(id);
 	}

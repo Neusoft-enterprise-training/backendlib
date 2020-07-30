@@ -5,21 +5,22 @@
 <mapper namespace="com.neusoft.hotel.business.mapper.IResponseMapper">
 
 	<resultMap id="ResponseResultMap" type="Response" >
-		<id property="bcode" column="BIZCODE"/>
+		<id property="rid" column="RID"/>
+		<result property="bcode" column="BIZCODE"/>
 		<result property="wid" column="WORKERID"/>
 		<result property="time" column="WORKTIME"/>
 	</resultMap>
  
 	<insert id="insert">
-	insert into oa_response (BIZCODE,WORKERID,WORKTIME) values (#{bcode},#{wid},#{time})
+	insert into oa_response (RID,BIZCODE,WORKERID,WORKTIME) values (#{rid},#{bcode},#{wid},#{time})
  	</insert>
   
  	<update id="update">
- 	update oa_response set WORKTIME=#{time} where BIZCODE=#{bcode} and WORKERID=#{wid}
+ 	update oa_response set BIZCODE=#{bcode},WORKERID=#{wid},WORKTIME=#{time} where RID=#{rid}
  	</update>
   
 	<delete id="delete">
- 	delete from oa_response where BIZCODE=#{bcode} and WORKERID=#{wid}
+ 	delete from oa_response where RID=#{rid}
  	</delete>
   
  	<select id="selectByAll"  resultMap="ResponseResultMap">
@@ -34,8 +35,8 @@
  	select count(*) from oa_response
  	</select>
  
- 	<select id="selectByNo"  resultMap="ResponseResultMap">
- 	select * from oa_response where BIZCODE=#{bcode}
+ 	<select id="selectById"  resultMap="ResponseResultMap">
+ 	select * from oa_response where RID=#{rid}
  	</select>
   
 </mapper>

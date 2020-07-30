@@ -34,7 +34,7 @@
  	select count(*) from oa_bath
  	</select>
  
- 	<select id="selectByNo"  resultMap="BathResultMap">
+ 	<select id="selectById"  resultMap="BathResultMap">
  	select * from oa_bath where ITEMID=#{id} 
  	</select>
   

@@ -1,6 +1,7 @@
 package com.neusoft.hotel.business.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.neusoft.hotel.business.service.IBathService;
 
 @RestController
 @RequestMapping(value="/bath")
+@CrossOrigin(origins = {"*", "null"})
 public class BathController {
 	@Autowired
 	private IBathService bs=null;
@@ -57,7 +59,7 @@ public class BathController {
 		return result;
 	}
 	@GetMapping(value="/get")
-	public Result<BathModel> getByNo(@RequestParam(required=true) String id) throws Exception{
+	public Result<BathModel> getByNo(@RequestParam(required=true) int id) throws Exception{
 		Result<BathModel> result=new Result<BathModel>();
 		result.setResult(bs.getByNo(id));
 		

@@ -27,6 +27,6 @@ public interface IResponseMapper {
 	public int selectCountByAll() throws Exception;
 	
 	//按业务ID找负责关系
-	public ResponseModel selectById(String bcode) throws Exception;
+	public ResponseModel selectById(int rid) throws Exception;
 
 }
