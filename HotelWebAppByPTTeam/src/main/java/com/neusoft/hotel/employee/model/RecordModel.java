@@ -28,8 +28,7 @@ public class RecordModel {
 		return time;
 	}
 
-	public void setStart(Instant start) {
-		this.time = start;
+	public void setStart(Instant time) {
+		this.time = time;
 	}
-
 }
