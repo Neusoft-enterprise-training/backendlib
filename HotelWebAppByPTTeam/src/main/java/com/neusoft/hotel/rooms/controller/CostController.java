@@ -25,7 +25,7 @@ public class CostController {
 		ds.add(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
-		result.setMessage("增加部门成功");
+		result.setMessage("增加成功");
 		return result;
 	}
 	
@@ -34,7 +34,7 @@ public class CostController {
 		ds.modify(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
-		result.setMessage("修改部门成功");
+		result.setMessage("修改成功");
 		return result;
 	}
 	
@@ -43,7 +43,7 @@ public class CostController {
 		ds.delete(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
-		result.setMessage("删除部门成功");
+		result.setMessage("删除成功");
 		return result;
 	}
 	

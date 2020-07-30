@@ -16,7 +16,7 @@
   </insert>
   
   <update id="update">
-  update oa_cost set SOUPCOST=#{soupcost},FOODCOST=#{foodcost},ROOMWORKER=#{condomcost} where ROOMNO=#{no}
+  update oa_cost set SOUPCOST=#{soupcost},FOODCOST=#{foodcost},CONDOMCOST=#{condomcost} where ROOMNO=#{no}
   </update>
   
   <delete id="delete">

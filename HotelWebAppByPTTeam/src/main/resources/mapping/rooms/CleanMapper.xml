@@ -16,7 +16,7 @@
   </insert>
   
   <update id="update">
-  update oa_clean set CLEANTIME=#{time},ROOMID=#{roomid},CLEANWORKER=#{worker} where CLEANID=#{cleanid}
+  update oa_clean set CLEANTIME=#{time},ROOMID=#{roomid},CLEANWORKER=#{worker} where CLEANID = #{cleanid}
   </update>
   
   <delete id="delete">

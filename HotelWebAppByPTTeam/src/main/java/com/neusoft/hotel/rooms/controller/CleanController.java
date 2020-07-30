@@ -25,7 +25,7 @@ public class CleanController {
 		ds.add(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
-		result.setMessage("增加清洁记录成功");
+		result.setMessage("增加成功");
 		return result;
 	}
 	
@@ -34,16 +34,17 @@ public class CleanController {
 		ds.modify(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
-		result.setMessage("修改部门成功");
+		result.setMessage("修改成功");
 		return result;
 	}
 	
 	@PostMapping(value="/delete")
 	public Result<String> delete(CleanModel dm) throws Exception {
+		System.out.println(dm.getCleanid());
 		ds.delete(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
-		result.setMessage("删除部门成功");
+		result.setMessage("删除成功");
 		return result;
 	}
 	

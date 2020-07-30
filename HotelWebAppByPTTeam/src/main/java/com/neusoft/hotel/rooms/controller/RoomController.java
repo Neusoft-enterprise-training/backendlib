@@ -41,6 +41,8 @@ public class RoomController {
 	
 	@PostMapping(value="/delete")
 	public Result<String> delete(RoomModel dm) throws Exception {
+		System.out.println("df");
+		System.out.println(dm.getNo());
 		ds.delete(dm);
 		Result<String> result = new Result<String>();
 		result.setStatus("Fine");
