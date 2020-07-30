@@ -10,7 +10,7 @@ public class CommentModel {
 	private int id = 0;
 	private int cid = 0;
 	private Date time = null;
-	private char level = 'a';
+	private String level = null;
 	
 	
 	public int getId() {
@@ -31,10 +31,10 @@ public class CommentModel {
 	public void setTime(Date time) {
 		this.time = time;
 	}
-	public char getLevel() {
+	public String getLevel() {
 		return level;
 	}
-	public void setLevel(char level) {
+	public void setLevel(String level) {
 		this.level = level;
 	}
 	

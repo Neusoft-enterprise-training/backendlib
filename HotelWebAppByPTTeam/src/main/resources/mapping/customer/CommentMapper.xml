@@ -16,7 +16,7 @@
   </insert>
   
   <update id="update">
-  update comment set CID=#{cid},LEVLE=#{level},TIME=#{time} where ID=#{id}
+  update comment set CID=#{cid},LEVEL=#{level},TIME=#{time} where ID=#{id}
   </update>
   
   <delete id="delete">
